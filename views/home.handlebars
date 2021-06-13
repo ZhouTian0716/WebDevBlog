@@ -1,44 +1,48 @@
-<header class="header">
-      
-        <div class="text">
-          Be done in as little as 10 minutes. Don't wait 'till it's too late...
-        </div>
-        <ul class="menu">
-          <li><a href="/home" class="menu-btn">Home</a></li>
-          <li><a href="/about" class="menu-btn">About</a></li>
-          {{!-- <li><a href="#" class="menu-btn">Guide</a></li> --}}
-          <li><a href="https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-2006-080" target="_blank" ="menu-btn">Legal</a></li>
-          {{!-- <li><a href="#" class="menu-btn">Testimonials</a></li> --}}
-          
-        </ul>
-        
-      
-    </header>
-    
-    <!-- home section start -->
-    <section class="home" id="home">
-      <div class="max-width">
-        <div class="home-content">
-          <div class="text-1">Welcome to</div>
-          <div class="logo-2">Thy<span>Will</span></div>
-          <div class="text-2">Your Popular Will Drafting Tool</div>
-          <div class="text-2">We are <span class="typing"></span></div>
-          <div>
-            <button id="startBtn" data-toggle="modal" data-target="#signUpModal"><i class="fas fa-pen-fancy"></i> Get Started</button>
-            <button id="modalBtn" data-toggle="modal" data-target="#loginModal"><i class="fas fa-sign-in-alt"></i></i> Account</button>
-          </div>  
-        </div>
-      </div>
-    </section>
+<header id="header">
+  <div class="nav-1">
+    <button id="burgerBtn"><i class="fas fa-bars"></i></button>
+      <span id="logo"><span id="logo-sub">WebDev</span>BBS</span>
+    <button id="searchBtn"><i class="fas fa-search"></i></button>
+  </div>
+  <div class="nav-2">
+    <button id="signUpBtn" data-toggle="modal" data-target="#homeModal"><i class="fas fa-user-plus"></i>SignUp</button>
+    <button id="loginBtn" data-toggle="modal" data-target="#homeModal"><i class="fas fa-sign-in-alt"></i>Login</button>
+  </div>
+</header>
 
-{{> login-modal}}
+<section class="container-cards">
+  <div id="cardList-header">
+    <span>Current user blogs:</span>
+    <button id="filterBtn"><i class="fas fa-filter"></i></button>
+  </div>
 
-{{> signup-modal}}
+  <a class="card">
+    <h3>Why MVC is so important?</h3>
+    <h5>Posted by: <span>Zhou Tian</span></h5>
+    <h5>On: <span>12/06/2021</span></h5>
+    <h5>
+      <span><i class="fas fa-thumbs-up"></i><span>10</span></span>
+      <span><i class="fas fa-comment-dots"></i><span>10</span></span>
+    </h5>
+  </a>
+            
+  <a class="card">
+    <h3>Wanna make a popular music app?</h3>
+    <h5>Posted by: <span>Frank Fan</span></h5>
+    <h5>On: <span>12/06/2021</span></h5>
+    <h5>
+      <span><i class="fas fa-thumbs-up"></i><span>10</span></span>
+      <span><i class="fas fa-comment-dots"></i><span>10</span></span>
+    </h5>
+  </a>
 
-{{> alert-modal}}
+</section>
+
+{{> accountModal}}
 
 
-    <script src="/assets/scripts/login.js"></script>
-    {{#if logged_in}}
-    <script src="/assets/scripts/logout.js"></script>
-    {{/if}}
+{{!-- <script src="/assets/scripts/login.js"></script> --}}
+<script src="/assets/scripts/home.js"></script>
+{{#if logged_in}}
+  <script src="/assets/scripts/logout.js"></script>
+{{/if}}
