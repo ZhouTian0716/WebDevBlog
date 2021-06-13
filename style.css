@@ -26,11 +26,11 @@ a:hover{
 }
 
 /* special styles */
-#signUpModal .password{
+#homeModal .password{
     display: flex;
     align-items: center;
 }
-#signUpModal .password i{
+#homeModal .password i{
     margin-left: -30px;
     cursor: pointer;
 }
