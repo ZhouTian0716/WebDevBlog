@@ -71,13 +71,8 @@ router.post("/create", async (req, res) => {
     console.log(account);
     let newUser = await User.create({
       id: account.id,
-      name: "Your Full Name (including Middle Names)",
-      gender: true,
-      occupation: "What you do for a living",
-      DOB: "Your date of birth",
-      casket: "Any casket instructions here",
-      ceremony: "Any ceremonial instructions here",
-      address: "Your residential address",
+      name: "Full Name",
+      icon: 1,
       account_id: account.id,
     });
     newUser = newUser.get({ plain: true });
@@ -87,7 +82,7 @@ router.post("/create", async (req, res) => {
       req.session.account_id = account.id;
       req.session.logged_in = true;
     });
-    res.redirect("../../profile");
+    res.redirect("../../dashboard");
   } catch (err) {
     res.status(400).send(err);
   }

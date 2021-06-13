@@ -19,28 +19,8 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    gender: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-    },
-    occupation: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    DOB: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    casket: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    ceremony: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    address: {
-      type: DataTypes.STRING,
+    icon: {
+      type: DataTypes.INTEGER,
       allownull: false,
     },
     account_id: {

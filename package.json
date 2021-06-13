@@ -1,21 +1,34 @@
 {
-  "name": "ZT-Tech-Blog",
+  "name": "webdevblog",
   "version": "1.0.0",
   "description": "",
-  "main": "dashboard.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "jest",
+    "seed": "node ./seeds/seed",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ZhouTian0716/ZT_Tech_Blog.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "ZhouTian0716",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ZhouTian0716/ZT_Tech_Blog/issues"
   },
-  "homepage": "https://github.com/ZhouTian0716/ZT_Tech_Blog#readme"
+  "homepage": "https://github.com/ZhouTian0716/ZT_Tech_Blog#readme",
+  "dependencies": {
+		"bcrypt": "^5.0.1",
+		"connect-session-sequelize": "^7.1.1",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"express-handlebars": "^5.3.2",
+		"express-session": "^1.17.2",
+		"handlebars": "^4.7.7",
+		"jest": "^27.0.3",
+		"mysql2": "^2.2.5",
+		"nodemon": "^2.0.7",
+		"sequelize": "^6.6.2"
+	}
 }

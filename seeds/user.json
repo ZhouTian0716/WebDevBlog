@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Zhou Tian",
+    "icon": 1,
+    "account_id": 1
+  },
+  {
+    "id": 2,
+    "name": "Frank Fan",
+    "icon": 2,
+    "account_id": 2
+  },
+  {
+    "id": 3,
+    "name": "Amanda Li",
+    "icon": 3,
+    "account_id": 3
+  }
+]

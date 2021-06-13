@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Beneficiary extends Model {}
+class Blog extends Model {}
 
-Beneficiary.init(
+Blog.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,36 +11,20 @@ Beneficiary.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    DOB: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    relationship: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    address: {
+    body: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    isChild: {
-      type: DataTypes.BOOLEAN,
+    pub_date: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
-    isCharity: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-    },
-    guardian_name: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    guardian_address: {
-      type: DataTypes.STRING,
+    thumb_up: {
+      type: DataTypes.INTEGER,
       allowNull: true,
     },
     user_id: {
@@ -56,8 +40,8 @@ Beneficiary.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "beneficiary",
+    modelName: "blog",
   }
 );
 
-module.exports = Beneficiary;
+module.exports = Blog;
