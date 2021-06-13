@@ -19,6 +19,7 @@ button:hover{
     background-color: var(--linkhover);
 }
 a{
+    color: var(--sectionText1);
     transition: all .3s ease-in-out
 }
 a:hover{
@@ -34,12 +35,21 @@ a:hover{
     margin-left: -30px;
     cursor: pointer;
 }
+.userIcon {
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    border: 2px solid var(--sectionText1);
+}
 
+
+
+
+/* Layout styles */
 body{
    color:var(--sectionText1);
    font-family: "Montserrat", sans-serif;
 }
-
 
 main{
     display: flex;
@@ -105,20 +115,21 @@ main{
     font-size: 16px;
     padding: 3px 5px;
 }
-
-
 .card{
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
     border: 2px solid var(--sectionText1);
     border-radius: 10px;
-    padding: 15px;
+    padding: 8px;
     margin-top: 15px;
     transition: all .3s ease-in-out
 }
+
+
+
 .card h3{
     font-size: 16px;
+    font-weight: bolder;
 }
 .card h5{
     font-size: 12px;
@@ -129,6 +140,7 @@ main{
 }
 .card:hover{
     transform: scale(1.02);
+    box-shadow: 0px 0px 8px var(--sectionText1);
 }
 
 
@@ -137,7 +149,8 @@ main{
     display: flex;
     column-gap: 5px;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-top: auto;
+    margin-bottom: 20px;
 }
 #pageNav a{
     padding: 5px 8px;
@@ -149,6 +162,7 @@ main{
 
 footer{
     display: flex;
+    text-align: center;
     flex-direction: column;
     background-color: var(--sectionBackground);
     padding: 10px;
@@ -156,3 +170,20 @@ footer{
 
 
 /* User Page New style below &&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+.container-user{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 10px 0 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--sectionBackground);
+}
+.container-user div p{
+    margin-bottom: 0;
+    font-size: 16px;
+}
+.container-user div{
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+}

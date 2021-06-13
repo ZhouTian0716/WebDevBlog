@@ -1,0 +1,21 @@
+{
+  "name": "ZT-Tech-Blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dashboard.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhouTian0716/ZT_Tech_Blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZhouTian0716/ZT_Tech_Blog/issues"
+  },
+  "homepage": "https://github.com/ZhouTian0716/ZT_Tech_Blog#readme"
+}

@@ -12,7 +12,6 @@ const login = () => {
 }
 
 
-
 // Modal Switching feature
 const homepageModalToSign = () => {
     $("#emailInput").val("");

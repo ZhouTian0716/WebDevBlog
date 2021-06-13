@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Saul Goodman",
+    "relationship": "Solicitor",
+    "address": "230 Saul Street, Albuquerque NSW",
+    "isAlternate": false,
+    "user_id": 1
+  },
+  {
+    "name": "Harvey Specter",
+    "relationship": "Lawyer",
+    "address": "230 Harvey Street, Melbourne VIC",
+    "isAlternate": true,
+    "user_id": 1
+  },
+  {
+    "name": "Aaron Schmidt",
+    "relationship": "Family Lawyer",
+    "address": "1/230 Law Street, Sydney NSW",
+    "isAlternate": false,
+    "user_id": 2
+  },
+  {
+    "name": "Michael Portelli",
+    "relationship": "Lawyer",
+    "address": "2/230 Law Street, Sydney NSW",
+    "isAlternate": true,
+    "user_id": 2
+  }
+]
