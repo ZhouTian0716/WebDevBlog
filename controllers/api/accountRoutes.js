@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Account, User } = require("../../models");
+const { Account } = require("../../models");
 
 // Route to Get All
 router.get("/", async (req, res) => {
@@ -13,6 +13,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Route to Compare and Check
 router.post("/", async (req, res) => {
   try {
     const accountData = await Account.findOne({
@@ -43,16 +44,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.post("/logout", (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
-
+// Route to logout
 router.get("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -63,28 +55,19 @@ router.get("/logout", (req, res) => {
   }
 });
 
-router.post("/create", async (req, res) => {
-  // create a new account
+// Route to Create new
+router.post('/', async (req, res) => {
   try {
-    const accountInfo = await Account.create(req.body);
-    let account = accountInfo.get({ plain: true });
-    console.log(account);
-    let newUser = await User.create({
-      id: account.id,
-      name: "Full Name",
-      icon: 1,
-      account_id: account.id,
-    });
-    newUser = newUser.get({ plain: true });
+    const accountData = await Account.create(req.body);
 
-    res.status(200).json("Account created!");
     req.session.save(() => {
-      req.session.account_id = account.id;
+      req.session.user_id = accountData.id;
       req.session.logged_in = true;
+
+      res.status(200).json(accountData);
     });
-    res.redirect("../../dashboard");
   } catch (err) {
-    res.status(400).send(err);
+    res.status(400).json(err);
   }
 });
 
