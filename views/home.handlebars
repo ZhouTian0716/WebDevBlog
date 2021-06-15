@@ -16,7 +16,19 @@
     <button id="filterBtn"><i class="fas fa-filter"></i></button>
   </div>
 
+  {{#each blogs as |blog| }}
   <a class="card">
+    <h3>{{blog.title}}</h3>
+    <h5>Posted by: <span>{{blog.user.name}}</span></h5>
+    <h5>On: <span>{{blog.pub_date}}</span></h5>
+    <h5>
+      <span><i class="fas fa-thumbs-up"></i><span>10</span></span>
+      <span><i class="fas fa-comment-dots"></i><span>10</span></span>
+    </h5>
+  </a>
+  {{/each}}
+
+  {{!-- <a class="card">
     <h3>Why MVC is so important?</h3>
     <h5>Posted by: <span>Zhou Tian</span></h5>
     <h5>On: <span>12/06/2021</span></h5>
@@ -34,7 +46,7 @@
       <span><i class="fas fa-thumbs-up"></i><span>10</span></span>
       <span><i class="fas fa-comment-dots"></i><span>10</span></span>
     </h5>
-  </a>
+  </a> --}}
 
 </section>
 

@@ -1,3 +1,34 @@
+
+
+
+// Get request to have all blog data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Functions to switch Add or Update Modal
 const signUp = () => {
     alert("Sign Up Successful");

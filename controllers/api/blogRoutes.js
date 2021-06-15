@@ -3,7 +3,7 @@ const { Blog } = require("../../models");
 const withAuth = require('../../utils/auth');
 
 // Route to Get All
-router.get("/", withAuth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const blogData = await Blog.findAll({
       order: [["id", "ASC"]],
