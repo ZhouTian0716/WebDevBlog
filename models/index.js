@@ -5,6 +5,7 @@ const User = require("./User");
 
 // Account
 Account.hasOne(User, {
+  foreignKey: "account_id",
   onDelete: 'CASCADE'
 });
 

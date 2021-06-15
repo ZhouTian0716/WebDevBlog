@@ -33,14 +33,14 @@ router.post("/login", async (req, res) => {
     const accountData = await Account.findOne({
       where: { email: req.body.email },
     });
-
+    
     if (!accountData) {
       res.status(400).json({ message: "Login failed. Please try again" });
       return;
     }
 
     const validPassword = await accountData.checkPassword(req.body.password);
-
+  
     if (!validPassword) {
       res.status(400).json({ message: "Login failed. Please try again" });
       return;

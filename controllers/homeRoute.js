@@ -17,10 +17,10 @@ router.get('/', async (req, res) => {
 
     // Serialize data so the template can read it
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
-
+    
     // Pass serialized data and session flag into template
-    res.render('home', 
-    { 
+    res.render('home', { 
+      layout:'layout-1',
       blogs, 
       logged_in: req.session.logged_in 
     });

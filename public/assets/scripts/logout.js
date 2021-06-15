@@ -1,10 +1,10 @@
-function alert(text) {
-  $("#alertMessage").text(text);
-  $("#alertButton").trigger("click");
-}
+// function alert(text) {
+//   $("#alertMessage").text(text);
+//   $("#alertButton").trigger("click");
+// }
 
 const logout = async () => {
-  const response = await fetch("/api/accounts/logout", {
+  const response = await fetch("/api/account/logout", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
   });
@@ -17,4 +17,4 @@ const logout = async () => {
   }
 };
 
-document.querySelector("#logout").addEventListener("click", logout);
+document.querySelector("#logOutBtn").addEventListener("click", logout);
