@@ -12,22 +12,39 @@
 
 <section class="container-cards">
   <div id="cardList-header">
-    <span>Current user blogs:</span>
-    <button id="filterBtn"><i class="fas fa-filter"></i></button>
+    <span>Current clicked blog:</span>
+    <button id="thumbBtn"><i class="far fa-thumbs-up"></i></button>
   </div>
 
-  {{#each blogs as |blog| }}
-  <a class="card" href="/blog/{{blog.id}}" target="_blank">
+  
+  <div class="card">
     <h3>{{blog.title}}</h3>
-    <h5>Posted by: <span>{{blog.user.name}}</span></h5>
+    <h5>Posted by: <span>{{user.name}}</span></h5>
     <h5>On: <span>{{format_date blog.pub_date}}</span></h5>
-    <h5>
-      <span><i class="fas fa-thumbs-up"></i><span>10</span></span>
-      <span><i class="fas fa-comment-dots"></i><span>10</span></span>
-    </h5>
-  </a>
-  {{/each}}
+    <h5>{{blog.body}}</h5>
+  </div>
+
+  
+ 
 </section>
+
+<section class="container-cards">
+  <div id="cardList-header">
+    <span>Comments:</span>
+    <button id="commentToggle"><i class="fas fa-eye"></i></button>
+  </div>
+
+
+  {{#each comments as |comment| }}
+  <div class="card">
+    <h3>comment user id</h3>
+    <h5>On: <span>{{format_date comment.com_date}}</span></h5>
+    <h5>{{comment.content}}</h5>
+  </div>
+  {{/each}}
+
+</section>
+
 
 {{> accountModal}}
 
