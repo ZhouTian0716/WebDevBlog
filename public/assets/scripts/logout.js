@@ -1,7 +1,4 @@
-// function alert(text) {
-//   $("#alertMessage").text(text);
-//   $("#alertButton").trigger("click");
-// }
+
 
 const logout = async () => {
   const response = await fetch("/api/account/logout", {

@@ -16,10 +16,12 @@ User.init(
     },
     name: {
       type: DataTypes.STRING,
+      defaultValue: "New User",
       allowNull: false,
     },
     icon: {
       type: DataTypes.INTEGER,
+      defaultValue: 12,
       allownull: false,
     },
     account_id: {
