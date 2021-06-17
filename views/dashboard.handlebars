@@ -2,7 +2,7 @@
   <div class="nav-1">
     <button id="burgerBtn"><i class="fas fa-bars"></i></button>
     <a href="/"><span id="logo"><span id="logo-sub">WebDev</span>BBS</span></a>
-    <button id="userEditBtn"><i class="fas fa-user-edit"></i></button>
+    <button id="userEditBtn" data-toggle="modal" data-target="#userModal"><i class="fas fa-user-edit"></i></button>
   </div>
     <div class="nav-2">
       <a href="/" id="signUp"><i class="fas fa-edit"></i>New</a>
@@ -37,6 +37,6 @@
   {{/each}}        
 </section>
 
-
+{{> userModal}}
 
 

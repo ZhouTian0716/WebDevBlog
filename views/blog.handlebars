@@ -12,14 +12,14 @@
 
 <section class="container-cards">
   <div id="cardList-header">
-    <span>Current clicked blog:</span>
+    <span>Viewing:</span>
     <button id="thumbBtn"><i class="far fa-thumbs-up"></i></button>
   </div>
 
   
   <div class="card">
     <h3>{{blog.title}}</h3>
-    <h5>Posted by: <span>{{user.name}}</span></h5>
+    <h5>By: <span>{{user.name}}</span></h5>
     <h5>On: <span>{{format_date blog.pub_date}}</span></h5>
     <h5>{{blog.body}}</h5>
   </div>
@@ -37,8 +37,13 @@
 
   {{#each comments as |comment| }}
   <div class="card">
-    <h3>comment user id</h3>
-    <h5>On: <span>{{format_date comment.com_date}}</span></h5>
+    <div class="row">
+      <img class="commentIcon" src="/assets/img/{{comment.user.icon}}.JPG" alt="userIcon">
+      <div>
+        <h3>{{comment.user.name}}</h3>
+        <h5>On: <span>{{format_date comment.com_date}}</span></h5>
+      </div>
+    </div>
     <h5>{{comment.content}}</h5>
   </div>
   {{/each}}

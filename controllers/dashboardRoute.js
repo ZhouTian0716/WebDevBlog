@@ -24,8 +24,9 @@ router.get("/", withAuth, async (req, res) => {
 
     const account = accountData.get({ plain: true });
     const user = userInfo.get({ plain: true });
-    console.log(account);
-    console.log(user);
+    // console.log(account);
+    // console.log(user);
+    
     res.render("dashboard", {
       layout: "layout-1",
       account,

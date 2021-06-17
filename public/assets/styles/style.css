@@ -43,6 +43,13 @@ a:hover{
     border: 2px solid var(--sectionText1);
 }
 
+.commentIcon {
+    margin: 0 25px 10px 25px;
+    height: 45px;
+    width: 45px;
+    border-radius: 22.5px;
+    border: 2px solid var(--sectionText1);
+}
 
 
 
@@ -120,14 +127,11 @@ main{
     display: flex;
     flex-direction: column;
     border: 2px solid var(--sectionText1);
-    
     border-radius: 10px;
     padding: 8px;
     margin-top: 15px;
     transition: all .3s ease-in-out
 }
-
-
 
 .card h3{
     font-size: 16px;

@@ -11,18 +11,28 @@ router.get("/:id", async (req, res) => {
           model: User,
           attributes: ['name'],
         },
-        {
-          model: Comment,
-        },
       ],
     });
     const blog = blogData.get({ plain: true });
+    // console.log(blog);
+
+    const commentData = await Comment.findAll({
+      where: {blog_id:req.params.id,},
+       include: [
+        {
+          model: User,
+          attributes: ['name','icon'],
+        },
+      ],  
+    });
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
+   
 
     res.render("blog", {
       layout: "layout-1",
       blog,
       user:blog.user,
-      comments:blog.comments,
+      comments,
       logged_in: req.session.logged_in
     });
   } catch (err) {
