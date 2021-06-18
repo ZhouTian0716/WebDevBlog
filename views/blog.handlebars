@@ -1,12 +1,17 @@
 <header id="header">
   <div class="nav-1">
     <button id="burgerBtn"><i class="fas fa-bars"></i></button>
-      <span id="logo"><span id="logo-sub">WebDev</span>BBS</span>
+      <a href="/"><span id="logo"><span id="logo-sub">WebDev</span>BBS</span></a>
     <button id="searchBtn"><i class="fas fa-search"></i></button>
   </div>
   <div class="nav-2">
+    {{#if logged_in}}
+    <a href="/dashboard"><i class="fas fa-user"></i>Dashboard</a>
+    <button  id="logOutBtn"><i class="fas fa-sign-out-alt"></i>LogOut</button>
+    {{else}}
     <button id="signUpBtn" data-toggle="modal" data-target="#homeModal"><i class="fas fa-user-plus"></i>SignUp</button>
     <button id="loginBtn" data-toggle="modal" data-target="#homeModal"><i class="fas fa-sign-in-alt"></i>Login</button>
+    {{/if}}
   </div>
 </header>
 
