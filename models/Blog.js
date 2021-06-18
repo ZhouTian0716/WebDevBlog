@@ -26,6 +26,7 @@ Blog.init(
     },
     thumb_up: {
       type: DataTypes.INTEGER,
+      defaultValue: 0,
       allowNull: true,
     },
     user_id: {

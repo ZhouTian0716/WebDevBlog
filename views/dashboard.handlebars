@@ -5,7 +5,7 @@
     <button id="userEditBtn" data-toggle="modal" data-target="#userModal"><i class="fas fa-user-edit"></i></button>
   </div>
     <div class="nav-2">
-      <a href="/" id="signUp"><i class="fas fa-edit"></i>New</a>
+      <button id="newBlogBtn"><i class="fas fa-edit"></i>New</button>
       <button  id="logOutBtn"><i class="fas fa-sign-out-alt"></i>LogOut</button>
     </div>
 </header>
@@ -18,22 +18,49 @@
   </div>
 </section>
 
-<section class="container-cards">
+<section id="newBlogSec" class="container-cards">
+  <form id="newBlogForm">
+    <div id="cardList-header">
+      <i id="newBlogHide" class="fas fa-minus-circle"></i>
+      <span>New Blog:</span>
+      <button type="submit" id="newBlogSave"><i class="fas fa-save"></i></button>
+    </div>
+    <input id="titleInput" type="text" class="form-control" placeholder="Blog Title" required>
+    <textarea id="bodyInput" class="form-control" name="bodyInput" cols="30" rows="10" placeholder="Blog Content" required></textarea>
+  </form>   
+</section>
 
+<section id="editBlogSec" class="container-cards">
+  <form id="editBlogForm">
+    <div id="cardList-header">
+      <i id="editBlogHide" class="fas fa-minus-circle"></i>
+      <span>View & Edit</span>
+      <button type="submit" id="editBlogSave"><i class="fas fa-save"></i></button>
+    </div>
+    <input id="titleEdit" type="text" class="form-control" required>
+    <textarea id="bodyEdit" class="form-control" name="bodyEdit" cols="30" rows="10" required></textarea>
+  </form>   
+</section>
+
+<section class="container-cards">
   <div id="cardList-header">
     <span>My blogs:</span>
     <!-- <button id="filterBtn"><i class="fas fa-filter"></i></button> -->
   </div>
-
   {{#each blogs as |blog| }}
-  <a class="card">
-    <h3>{{blog.title}}</h3>
+  <div class="card" >
+    <h3 class="w-100" >
+      <span class="titleTarget" data-blogId = "{{blog.id}}" data-blogTitle = "{{blog.title}}" data-blogBody = "{{blog.body}}">
+        {{blog.title}}
+      </span>
+      <i class="fas fa-trash-alt deleteBlogBtn" data-blogId = "{{blog.id}}"></i>
+    </h3>
     <h5>On: <span>{{format_date blog.pub_date}}</span></h5>
-    <h5>
-      <span><i class="fas fa-thumbs-up"></i><span>10</span></span>
-      <span><i class="fas fa-comment-dots"></i><span>10</span></span>
+    <h5 class="w-50 footer">
+      <span><i class="fas fa-thumbs-up"></i>{{blog.thumb_up}}</span>
+      <span><i class="fas fa-comment-dots"></i>10</span>
     </h5>
-  </a>
+  </div>
   {{/each}}        
 </section>
 
