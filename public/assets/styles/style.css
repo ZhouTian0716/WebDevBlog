@@ -50,7 +50,26 @@ a:hover{
     border-radius: 22.5px;
     border: 2px solid var(--sectionText1);
 }
-
+.previewIcon {
+    height: 70px;
+    width: 70px;
+    border-radius: 35px;
+    border: 2px solid var(--sectionText1);
+    transition: all .3s ease-in-out
+}
+.previewIcon:hover{
+    border: 5px solid green;
+    cursor: pointer;
+}
+#previewBox{
+    /* display: none; */
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+}
 
 
 /* Layout styles */

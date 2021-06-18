@@ -11,10 +11,10 @@
 </header>
 
 <section class="container-user">
-  <img class="userIcon" src="/assets/img/{{user.icon}}.JPG" alt="userIcon">
+  <img id ="iconDisplay" class="userIcon" src="/assets/img/{{user.icon}}.JPG" alt="userIcon" data-imgID="{{user.icon}}">
   <div>
     <p>Account: <span>{{account.email}}</span></p>
-    <p>Name: <span>{{user.name}}</span></p>
+    <p>Name: <span id ="nameDisplay" data="{{user.id}}">{{user.name}}</span></p>
   </div>
 </section>
 
@@ -39,4 +39,4 @@
 
 {{> userModal}}
 
-
+<script src="/assets/scripts/dashboard.js"></script>

@@ -3,7 +3,7 @@ const { User } = require("../../models");
 const withAuth = require('../../utils/auth');
 
 // Route to Get All
-router.get("/", withAuth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const userData = await User.findAll({
       order: [["id", "ASC"]],
@@ -15,7 +15,7 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 // Route to Get By ID
-router.get("/:id", withAuth, async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id);
     if (!userData) {
