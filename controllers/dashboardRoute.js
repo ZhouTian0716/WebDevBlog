@@ -24,8 +24,11 @@ router.get("/", withAuth, async (req, res) => {
 
     const account = accountData.get({ plain: true });
     const user = userInfo.get({ plain: true });
+    // console.log("============================");
     // console.log(account);
+    // console.log("============================");
     // console.log(user);
+    // console.log("============================");
     
     res.render("dashboard", {
       layout: "layout-1",

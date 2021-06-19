@@ -1,13 +1,27 @@
 <header id="header">
   <div class="nav-1">
-    <button id="burgerBtn"><i class="fas fa-bars"></i></button>
-    <a href="/"><span id="logo"><span id="logo-sub">WebDev</span>BBS</span></a>
-    <button id="userEditBtn" data-toggle="modal" data-target="#userModal"><i class="fas fa-user-edit"></i></button>
-  </div>
-    <div class="nav-2">
-      <button id="newBlogBtn"><i class="fas fa-edit"></i>New</button>
-      <button  id="logOutBtn"><i class="fas fa-sign-out-alt"></i>LogOut</button>
+
+    <div class="dropdown">
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <button class="dropdown-item" id="deleteAccount">Delete Account</button>
+        <button class="dropdown-item">option A</button>
+        <button class="dropdown-item">option B</button>
+      </div>
     </div>
+
+    <a href="/"><span id="logo"><span id="logo-sub">WebDev</span>BBS</span></a>
+
+    <button id="userEditBtn" data-toggle="modal" data-target="#userModal"><i class="fas fa-user-edit"></i></button>
+
+  </div>
+
+  <div class="nav-2">
+    <button id="newBlogBtn"><i class="fas fa-edit"></i>New</button>
+    <button  id="logOutBtn"><i class="fas fa-sign-out-alt"></i>LogOut</button>
+  </div>
 </header>
 
 <section class="container-user">

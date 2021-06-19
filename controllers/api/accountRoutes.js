@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Account } = require("../../models");
+const { Account, User} = require("../../models");
 
 // Route to Get All
 router.get("/", async (req, res) => {
@@ -72,11 +72,19 @@ router.post("/logout", (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const accountData = await Account.create(req.body);
+    let accountObj = accountData.get({ plain: true });
+    // we can use account.id here
+    await User.create({
+      id: accountObj.id,
+      name: "New User",
+      icon: 1,
+      account_id: accountObj.id,
+    });
 
     req.session.save(() => {
-      req.session.user_id = accountData.id;
+      req.session.account_id = accountObj.id;
       req.session.logged_in = true;
-      res.status(200).json(accountData);
+      res.status(200).json(accountObj);
     });
   } catch (err) {
     res.status(400).json(err);

@@ -29,11 +29,10 @@ router.get("/:id", async (req, res) => {
 });
 
 // Route to Create New
-router.post("/", withAuth, async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const UserNew = await User.create({
       ...req.body,
-      account_id: req.session.account_id,
     });
     res.status(200).json(UserNew);
   } catch (err) {

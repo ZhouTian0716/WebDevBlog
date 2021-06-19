@@ -1,3 +1,23 @@
+// &&&&&&&&&&&&&&&&&&&&  Delete Account  &&&&&&&&&&&&&&&&&&&&
+const deleteAccount = async () => {
+    if(confirm("Are you sure to delete this Account?")){
+        // Call this Backend Route with this method
+        let userID = $("#nameDisplay").attr("data");
+        const response = await fetch(`/api/account/${userID}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        });
+        if (response.ok) {
+        // Back to Home Page
+        document.location.replace("/");
+        }
+    }    
+};
+$("#deleteAccount").on("click", deleteAccount);
+
+// &&&&&&&&&&&&&&&&&&&&  Update User  &&&&&&&&&&&&&&&&&&&&
 // userModal Relevant
 const fillCurrent = () => {
     $("#userName").val($("#nameDisplay").text());
@@ -88,7 +108,6 @@ const fillAndGet =  async (event) => {
     try{
         var commentData = await fetch(`/api/comment/blog/${blogIdClicked}`);
         var commentObjArray = await commentData.json();
-        console.log(commentObjArray);
     }catch (err) {
         console.error(err);
     } 

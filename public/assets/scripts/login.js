@@ -42,10 +42,7 @@ const signUpFormHandler = async (event) => {
   
       if (response.ok) {
         document.location.replace('/dashboard');
-      } else {
-        alert(response.statusText);
-      }
-
+      } else { alert(response.statusText) }
     }
   } catch (err) {
     console.error(err);
