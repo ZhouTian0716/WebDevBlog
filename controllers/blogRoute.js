@@ -27,7 +27,6 @@ router.get("/:id", async (req, res) => {
     });
     const comments = commentData.map((comment) => comment.get({ plain: true }));
    
-
     res.render("blog", {
       layout: "layout-1",
       blog,
@@ -39,6 +38,8 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
 
 module.exports = router;
 

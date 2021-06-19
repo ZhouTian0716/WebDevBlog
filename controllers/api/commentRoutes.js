@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Comment } = require("../../models");
+const { Comment, User} = require("../../models");
 const withAuth = require('../../utils/auth');
 
 // Route to Get All
@@ -13,6 +13,30 @@ router.get("/", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// Route to Get All comments with blog ID
+router.get("/blog/:id", async (req, res) => {
+  try {
+    const commentData = await Comment.findAll({
+      where: {blog_id:req.params.id,},
+      include: [
+        {
+          model: User,
+          attributes: ['name','icon'],
+        },
+      ],  
+      order: [["id", "ASC"]],
+    });
+    
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
+   
+    res.status(200).json(comments);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 
 // Route to Get By ID
 router.get("/:id", withAuth, async (req, res) => {

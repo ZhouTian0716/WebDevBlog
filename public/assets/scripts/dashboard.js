@@ -66,25 +66,55 @@ const createBlog = async (event) => {
 }
 $("#newBlogForm").on("submit", createBlog);
 
-// &&&&&&&&&&&&&&&&&&&&  Update Blog  &&&&&&&&&&&&&&&&&&&&
+// &&&&&&&&&&&&&&&&&&&&  Update & View Blog  &&&&&&&&&&&&&&&&&&&&
 // Feature: Editing section toggle btn
 const hideEditBlogSec = () => {
     $("#editBlogSec").css("display", "none");
 };
 $("#editBlogHide").on("click", hideEditBlogSec);
 
-// Step 1: Put selected blog into edit area
+// Step 1: 
 var blogIdClicked;
-const fillEdit = (event) => {
-    $("#editBlogSec").css("display", "block");
+const fillAndGet =  async (event) => {
+//Part One, Put selected blog into edit area.    
+    $("#editBlogSec").css("display", "flex");
     let targetBtn = $(event.target);
     blogIdClicked = targetBtn.attr("data-blogId");
     let blogTitle = targetBtn.attr("data-blogTitle");
     let blogBody = targetBtn.attr("data-blogBody");
     $("#titleEdit").val(blogTitle);
     $("#bodyEdit").val(blogBody);
+//Part Two, Do a get method, to collect all comments for selected blog  
+    try{
+        var commentData = await fetch(`/api/comment/blog/${blogIdClicked}`);
+        var commentObjArray = await commentData.json();
+        console.log(commentObjArray);
+    }catch (err) {
+        console.error(err);
+    } 
+//Part Three, to construct the comment cards
+    $('#editBlogSec').children('.card').remove();
+    for (let i=0; i < commentObjArray.length; i++){
+        let contentData = commentObjArray[i].content;
+        let dateData = commentObjArray[i].com_date;
+        let dateFormated = moment(dateData).format("DD/MM/YYYY");
+        let iconData = commentObjArray[i].user.icon;
+        let nameData = commentObjArray[i].user.name;
+        let contentEl = $('<h5>').text(contentData);
+        let dateEl = $('<h5>').text(dateFormated);
+        let iconEl = $('<img>').addClass('commentIcon').attr("src",`/assets/img/${iconData}.JPG`);
+        let nameEl = $('<h3>').text(nameData);
+        const innerDivEl = $('<div>');
+        const rowDivEl = $('<div>').addClass('row');
+        const cardDivEl = $('<div>').addClass('card');
+        innerDivEl.append(nameEl, dateEl);
+        rowDivEl.append(iconEl, innerDivEl);
+        cardDivEl.append(rowDivEl, contentEl)
+        $("#editBlogSec").append(cardDivEl); 
+    }
 }
-$(".titleTarget").on("click", fillEdit);
+
+$(".titleTarget").on("click", fillAndGet);
 
 // Step 2: Update selected blog in database
 const updateBlog = async (event) => {

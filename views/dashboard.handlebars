@@ -31,6 +31,7 @@
 </section>
 
 <section id="editBlogSec" class="container-cards">
+
   <form id="editBlogForm">
     <div id="cardList-header">
       <i id="editBlogHide" class="fas fa-minus-circle"></i>
@@ -39,13 +40,18 @@
     </div>
     <input id="titleEdit" type="text" class="form-control" required>
     <textarea id="bodyEdit" class="form-control" name="bodyEdit" cols="30" rows="10" required></textarea>
-  </form>   
+  </form>
+
+  <div id="cardList-header">
+    <span>Comments:</span>
+    <button id="commentToggle"><i class="fas fa-eye"></i></button>
+  </div>
+
 </section>
 
 <section class="container-cards">
   <div id="cardList-header">
     <span>My blogs:</span>
-    <!-- <button id="filterBtn"><i class="fas fa-filter"></i></button> -->
   </div>
   {{#each blogs as |blog| }}
   <div class="card" >
