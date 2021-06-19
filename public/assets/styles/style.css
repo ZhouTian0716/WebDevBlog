@@ -133,6 +133,12 @@ main{
     background-color: var(--sectionBackground);
 }
 
+#commentSection{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
 #cardList-header{
     display: flex;
     justify-content: space-between;

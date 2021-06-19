@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const { Account, Blog, Comment, User} = require("../models");
-const withAuth = require("../utils/auth");
 
 // This is passing data for blog page rendering
 router.get("/:id", async (req, res) => {
@@ -9,30 +8,41 @@ router.get("/:id", async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['id', 'name'],
         },
       ],
     });
     const blog = blogData.get({ plain: true });
-    // console.log(blog);
 
     const commentData = await Comment.findAll({
       where: {blog_id:req.params.id,},
        include: [
         {
           model: User,
-          attributes: ['name','icon'],
+          attributes: ['id', 'name','icon'],
         },
       ],  
     });
     const comments = commentData.map((comment) => comment.get({ plain: true }));
    
+    // const accountData = await Account.findByPk(req.session.account_id, {
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ['name','icon'],
+    //     },
+    //   ],
+    // });
+    // const account = accountData.get({ plain: true });
+
     res.render("blog", {
       layout: "layout-1",
       blog,
       user:blog.user,
       comments,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      // account,
+      sessionId: req.session.account_id
     });
   } catch (err) {
     res.status(500).json(err);

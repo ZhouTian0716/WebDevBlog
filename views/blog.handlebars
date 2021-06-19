@@ -1,4 +1,4 @@
-<header id="header">
+<header id="header" data-session={{sessionId}}>
   <div class="nav-1">
     <button id="burgerBtn"><i class="fas fa-bars"></i></button>
       <a href="/"><span id="logo"><span id="logo-sub">WebDev</span>BBS</span></a>
@@ -23,7 +23,6 @@
     {{/if}}
   </div>
 
-  
   <div class="card">
     <h3>{{blog.title}}</h3>
     <h5>By: <span>{{user.name}}</span></h5>
@@ -31,19 +30,21 @@
     <h5>{{blog.body}}</h5>
   </div>
 
-  
- 
 </section>
 
-<section class="container-cards">
+<section class="container-cards" >
   <div id="cardList-header">
+    {{#if logged_in}}
+    <button id="addComment"><i class="far fa-plus-square"></i></button>
+    {{/if}}
     <span>Comments:</span>
     <button id="commentToggle"><i class="fas fa-eye"></i></button>
   </div>
 
 
+  <div id="commentSection">
   {{#each comments as |comment| }}
-  <div class="card">
+  <div class="card" data-id={{comment.user.id}}>
     <div class="row">
       <img class="commentIcon" src="/assets/img/{{comment.user.icon}}.JPG" alt="userIcon">
       <div>
@@ -54,13 +55,14 @@
     <h5>{{comment.content}}</h5>
   </div>
   {{/each}}
-
+  </div>
 </section>
 
 
 {{> accountModal}}
 
 
-
-{{!-- <script src="/assets/scripts/home.js"></script> --}}
 <script src="/assets/scripts/login.js"></script>
+{{#if logged_in}}
+<script src="/assets/scripts/blogPage.js"></script>
+{{/if}}
