@@ -26,6 +26,12 @@ a:hover{
     text-decoration: none;
     cursor: pointer;
 }
+i:hover{
+    cursor: pointer;
+}
+.fa-trash-alt:hover{
+    color:red;
+}
 
 
 /* special styles */
@@ -231,7 +237,7 @@ footer{
 }
 
 /* Dashboard Page New style below &&&&&&&&&&&&&&&&&&&&&&&&&&&& */
-#newBlogSec,#editBlogSec{
+#newBlogSec,#editBlogSec,#newCommentSec{
     display:none;
 }
 .container-cards input,textarea{
@@ -252,4 +258,15 @@ footer{
 .titleTarget:hover{
     color:blue;
     cursor: pointer;
+}
+
+/* blog Page New style below &&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+#commentSection .row{
+    position: relative;
+}
+#commentSection .btnDiv{
+    display: flex;
+    column-gap: 20px;
+    position: absolute;
+    right:20px;
 }

@@ -3,7 +3,7 @@ const { Comment, User} = require("../../models");
 const withAuth = require('../../utils/auth');
 
 // Route to Get All
-router.get("/", withAuth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const commentData = await Comment.findAll({
       order: [["id", "ASC"]],
@@ -39,7 +39,7 @@ router.get("/blog/:id", async (req, res) => {
 
 
 // Route to Get By ID
-router.get("/:id", withAuth, async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const commentData = await Comment.findByPk(req.params.id);
     if (!commentData) {
@@ -55,13 +55,12 @@ router.get("/:id", withAuth, async (req, res) => {
 // Route to Create New
 router.post("/", withAuth, async (req, res) => {
   try {
-    const commentNew = await Comment.create({
+    const commentData = await Comment.create({
       ...req.body,
       // This get Comment linked with the login account
       user_id: req.session.account_id,
     });
-    // console.log(req.session.account_id);
-    res.status(200).json(commentNew);
+    res.status(200).json(commentData);
   } catch (err) {
     res.status(400).json(err);
   }
