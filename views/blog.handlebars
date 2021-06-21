@@ -41,6 +41,17 @@
   </form>   
 </section>
 
+<section id="editCommentSec" class="container-cards">
+  <form id="editCommentForm">
+    <div id="cardList-header">
+      <i id="editCommentHide" class="fas fa-minus-circle"></i>
+      <span>Edit</span>
+      <button type="submit" id="editCommentSave"><i class="fas fa-save"></i></button>
+    </div>
+    <textarea id="contentEdit" class="form-control" name="contentEdit" cols="30" rows="5" required></textarea>
+  </form>
+</section>
+
 
 <section class="container-cards" >
   <div id="cardList-header">
@@ -62,7 +73,7 @@
         <h5>On: <span>{{format_date comment.com_date}}</span></h5>
       </div>
     </div>
-    <h5>{{comment.content}}</h5>
+    <h5 class="commentContent">{{comment.content}}</h5>
   </div>
   {{/each}}
   </div>

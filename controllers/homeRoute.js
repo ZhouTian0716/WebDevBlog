@@ -13,6 +13,9 @@ router.get('/', async (req, res) => {
           attributes: ['name'],
         },
       ],
+      order: [
+        ['id', 'DESC']
+      ]
     });
 
     // Serialize data so the template can read it
@@ -30,36 +33,5 @@ router.get('/', async (req, res) => {
 });
 
 
-
-// router.get("/", (req, res) => {
-//   if (req.session.logged_in) {
-//     res.redirect("/dashboard");
-//     return;
-//   }
-//   res.render("home", {
-//     layout: "layout-1",
-//   });
-// });
-
-
-// router.get("/about", (req, res) => {
-//   if (req.session.logged_in) {
-//     res.redirect("/profile");
-//     return;
-//   }
-//   res.render("team", {
-//     layout: "main-about",
-//   });
-// });
-
-// router.get("/login", (req, res) => {
-//   if (req.session.logged_in) {
-//     res.redirect("/profile");
-//     return;
-//   }
-//   res.render("home", {
-//     layout: "main",
-//   });
-// });
 
 module.exports = router;

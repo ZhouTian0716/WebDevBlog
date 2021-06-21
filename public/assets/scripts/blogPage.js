@@ -53,7 +53,45 @@ const createComment = async (event) => {
 }
 $("#newCommentForm").on("submit", createComment);
 
+// &&&&&&&&&&&&&&&&&&&&  Update & View Blog  &&&&&&&&&&&&&&&&&&&&
+// Feature: Editing section toggle btn
+const hideEditCommentSec = () => {
+    $("#editCommentSec").css("display", "none");
+};
+$("#editCommentHide").on("click", hideEditCommentSec);
 
+// Step 1: 
+var commentId;
+const fillCommentEdit =  async (event) => {
+//Part One, fill selected comment into edit area.    
+    $("#editCommentSec").css("display", "flex");
+    let targetBtn = $(event.target);
+    commentId = targetBtn.parent().parent().attr("data-commentID");
+    let commentContent =  targetBtn.parent().parent().parent().find(".commentContent").text();
+    $("#contentEdit").val(commentContent);
+}
+
+$(".editCommentBtn").on("click", fillCommentEdit);
+
+// Step 2: Update selected blog in database
+const updateComment = async (event) => {
+    event.preventDefault();
+    const content = $("#contentEdit").val().trim();
+    // Call this Backend Route with this method
+    console.log(commentId);
+    const response = await fetch(`/api/comment/${commentId}`, {
+      method: "PUT",
+      body: JSON.stringify({ content }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      alert("Failed to update");
+    }
+    location.reload();
+};
+$("#editCommentForm").on("submit", updateComment);
 
 
 // &&&&&&&&&&&&&&&&&&&&  Delete Comment  &&&&&&&&&&&&&&&&&&&&

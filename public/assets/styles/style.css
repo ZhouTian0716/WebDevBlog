@@ -212,8 +212,15 @@ footer{
     display: flex;
     text-align: center;
     flex-direction: column;
+    row-gap: 15px;
     background-color: var(--sectionBackground);
     padding: 10px;
+}
+footer .nav-3{
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px; 
+    padding: 0 25px;  
 }
 
 
@@ -237,7 +244,7 @@ footer{
 }
 
 /* Dashboard Page New style below &&&&&&&&&&&&&&&&&&&&&&&&&&&& */
-#newBlogSec,#editBlogSec,#newCommentSec{
+#newBlogSec,#editBlogSec,#newCommentSec,#editCommentSec{
     display:none;
 }
 .container-cards input,textarea{
