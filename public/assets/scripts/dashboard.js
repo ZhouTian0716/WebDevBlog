@@ -1,17 +1,20 @@
 // &&&&&&&&&&&&&&&&&&&&  Delete Account  &&&&&&&&&&&&&&&&&&&&
 const deleteAccount = async () => {
-    if(confirm("Are you sure to delete this Account?")){
-        // Call this Backend Route with this method
-        let userID = $("#nameDisplay").attr("data");
-        const response = await fetch(`/api/account/${userID}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        });
-        if (response.ok) {
-        // Back to Home Page
-        document.location.replace("/");
+    var accountEmail = $("#nameDisplay").attr("data-email");
+    if(confirm(`Are you sure to delete ${accountEmail}?`)){
+        if(confirm(`This will delete relevant blogs and comments, you sure?`)){
+            // Call this Backend Route with this method
+            let userID = $("#nameDisplay").attr("data");
+            const response = await fetch(`/api/account/${userID}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            });
+            if (response.ok) {
+            // Back to Home Page
+            document.location.replace("/");
+            }
         }
     }    
 };
