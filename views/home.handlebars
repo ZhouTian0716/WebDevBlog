@@ -1,8 +1,16 @@
 <header id="header">
   <div class="nav-1">
-    <button id="burgerBtn"><i class="fas fa-bars"></i></button>
-      <a href="/"><span id="logo"><span id="logo-sub">WebDev</span>BBS</span></a>
-    <button id="searchBtn"><i class="fas fa-search"></i></button>
+    <div class="dropdown">
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <button class="dropdown-item"  data-toggle="modal" data-target="#guideModal">Guide</button>
+        <button class="dropdown-item">About</button>
+      </div>
+    </div>
+    <a href="/"><span id="logo"><span id="logo-sub">WebDev</span>BBS</span></a>
+    <button id="searchBtn" data-toggle="modal" data-target="#userList"><i class="fas fa-search"></i></button>
   </div>
   <div class="nav-2">
     {{#if logged_in}}
@@ -36,7 +44,9 @@
 
 {{> accountModal}}
 
+{{> accountList}}
 
+{{> guideModal}}
 
 
 <script src="/assets/scripts/login.js"></script>

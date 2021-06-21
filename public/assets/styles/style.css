@@ -49,6 +49,12 @@ i:hover{
     border-radius: 30px;
     border: 2px solid var(--sectionText1);
 }
+.listedIcon {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--sectionText1);
+}
 
 .commentIcon {
     margin: 0 25px 10px 25px;
@@ -77,7 +83,24 @@ i:hover{
     padding-bottom: 10px;
     justify-content: center;
 }
-
+.accountList{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    row-gap: 15px;
+}
+.accountList h5{
+    margin-bottom: 0;
+}
+.accountList img{
+    margin-right: 15px;
+}
+.guideMessage h1{
+    font-size: 24px;
+}
+.guideMessage h3{
+    font-size: 16px;
+}
 
 /* Layout styles */
 body{

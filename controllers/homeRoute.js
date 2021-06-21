@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Blog, User } = require("../models");
+const { Account, Blog, User } = require("../models");
 // const withAuth = require("../utils/auth");
 
 // This is home page rendering
@@ -18,13 +18,30 @@ router.get('/', async (req, res) => {
       ]
     });
 
+    // Get all Accounts and JOIN with user data
+    const accountData = await Account.findAll({
+      attributes: {exclude: ['password']},
+      include: [
+        {
+          model: User,
+          attributes: ['name', 'icon'],
+        },
+      ],
+      order: [
+        ['id', 'ASC']
+      ]
+    });
+
     // Serialize data so the template can read it
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
+    const accounts = accountData.map((account) => account.get({ plain: true }));
+
     
     // Pass serialized data and session flag into template
     res.render('home', { 
       layout:'layout-1',
-      blogs, 
+      blogs,
+      accounts, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
